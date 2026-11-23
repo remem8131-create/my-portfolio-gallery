@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add('js');</script>
+  <title>معرض أعمالي | ريماس تركي</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-decor" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
+
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="transition-veil" aria-hidden="true"></div>
+
+  <nav class="top-nav" aria-label="قائمة التنقل">
+    <div class="container nav-inner">
+      <span class="brand">ريماس تركي</span>
+      <div class="nav-actions">
+        <button type="button" class="nav-btn" data-go="home" data-scroll="home-top">الرئيسية</button>
+        <button type="button" class="nav-btn" data-go="home" data-scroll="projects">تصفّح أعمالي</button>
+        <button type="button" class="nav-btn" data-go="home" data-scroll="contact">تواصلي معي</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="app" id="app">
+    <!-- الصفحة الرئيسية -->
+    <section class="screen home is-active is-visible" id="screen-home">
+      <header class="home-hero" id="home-top">
+        <div class="container home-hero-inner">
+          <p class="greeting reveal">مرحبًا بك في معرض أعمالي</p>
+          <p class="home-welcome reveal">أهلًا بكِ في عالمي · ريماس تركي</p>
+          <h1 class="home-title reveal">معرض أعمالي</h1>
+          <p class="home-intro reveal">
+            طالبة شغوفة بالتقنية وتحليل البيانات، أقدّم هنا مجموعة من المشاريع التي أنجزتها في مجالات البيانات،
+            والذكاء الاصطناعي، والأمن السيبراني.
+          </p>
+        </div>
+      </header>
+
+      <section class="projects" id="projects">
+        <div class="container">
+          <h2 class="section-title reveal">أعمالي</h2>
+          <p class="section-subtitle reveal">ثلاثة مشاريع تعكس اهتماماتي وتعلّمي في مجالات التقنية المختلفة.</p>
+
+          <div class="cards-grid">
+            <article class="card reveal" data-project="data" tabindex="0" role="button" aria-label="اكتشفي مشروع تحليل البيانات">
+              <div class="card-image reveal">
+                <img src="assets/data-analysis.svg" alt="رسم بياني لتحليل درجات الطالبات">
+              </div>
+              <div class="card-body reveal">
+                <h3>تحليل البيانات</h3>
+                <p>تحليل درجات عينة افتراضية من الطالبات وعرض النتائج باستخدام رسم بياني واضح وجميل.</p>
+                <button type="button" class="card-btn">اكتشفي المشروع <span aria-hidden="true">←</span></button>
+              </div>
+            </article>
+
+            <article class="card reveal" data-project="ai" tabindex="0" role="button" aria-label="اكتشفي مشروع الذكاء الاصطناعي">
+              <div class="card-image reveal">
+                <img src="assets/ai-education.svg" alt="روبوت ذكي يتعلم من الكتب">
+              </div>
+              <div class="card-body reveal">
+                <h3>الذكاء الاصطناعي</h3>
+                <p>عرض استخدامات الذكاء الاصطناعي في التعليم مع أمثلة توضيحية.</p>
+                <button type="button" class="card-btn">اكتشفي المشروع <span aria-hidden="true">←</span></button>
+              </div>
+            </article>
+
+            <article class="card reveal" data-project="cyber" tabindex="0" role="button" aria-label="اكتشفي مشروع الأمن السيبراني">
+              <div class="card-image reveal">
+                <img src="assets/cybersecurity.svg" alt="درع وقفل لحماية الحسابات وكلمات المرور">
+              </div>
+              <div class="card-body reveal">
+                <h3>الأمن السيبراني</h3>
+                <p>التوعية بطرق حماية الحسابات وكلمات المرور وأهمية الأمان الرقمي.</p>
+                <button type="button" class="card-btn">اكتشفي المشروع <span aria-hidden="true">←</span></button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="container contact-box reveal">
+          <h2 class="section-title">تواصلي معي</h2>
+          <p class="contact-text">
+            إذا أردتِ مناقشة فكرة مشروع، أو تبادل الخبرات، أو الاستفسار عن أعمالي، يسعدني تواصلك معي.
+          </p>
+          <button type="button" class="cta contact-open" id="contactOpen">تواصل معي</button>
+        </div>
+      </section>
+    </section>
+
+    <!-- صفحة تفاصيل: تحليل البيانات -->
+    <section class="screen detail" id="screen-project-data">
+      <div class="container detail-panel">
+        <div class="detail-top reveal">
+          <span class="detail-kicker">مشروع ٠١</span>
+          <h2 class="detail-title">تحليل البيانات</h2>
+        </div>
+
+        <div class="detail-image reveal">
+          <img src="assets/data-analysis.svg" alt="رسم بياني لتحليل درجات الطالبات">
+        </div>
+
+        <div class="detail-content">
+          <div class="detail-block reveal">
+            <h3>نظرة عامة</h3>
+            <p>تحليل درجات عينة افتراضية من الطالبات وعرض النتائج باستخدام رسم بياني واضح وجميل.</p>
+            <p class="detail-extra">
+              تحليل درجات عينة افتراضية من الطالبات، ثم عرض النتائج برسم بياني يوضّح توزّع الدرجات
+              ومتوسط الأداء وأعلى نتيجة.
+            </p>
+          </div>
+          <div class="detail-block reveal">
+            <h3>النتائج والأمثلة</h3>
+            <ul>
+              <li>تجهيز درجات افتراضية لعينة من الطالبات.</li>
+              <li>حساب المتوسط وأعلى نتيجة وأدنى نتيجة.</li>
+              <li>عرض التوزيع برسم بياني واضح يسهل قراءة النتائج.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="detail-actions reveal">
+          <button type="button" class="back-btn" data-go="home" data-scroll="projects">العودة إلى معرض الأعمال</button>
+          <button type="button" class="back-btn" data-go="home">العودة إلى الصفحة الرئيسية</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- صفحة تفاصيل: الذكاء الاصطناعي -->
+    <section class="screen detail" id="screen-project-ai">
+      <div class="container detail-panel">
+        <div class="detail-top reveal">
+          <span class="detail-kicker">مشروع ٠٢</span>
+          <h2 class="detail-title">الذكاء الاصطناعي</h2>
+        </div>
+
+        <div class="detail-image reveal">
+          <img src="assets/ai-education.svg" alt="روبوت ذكي يتعلم من الكتب">
+        </div>
+
+        <div class="detail-content">
+          <div class="detail-block reveal">
+            <h3>نظرة عامة</h3>
+            <p>عرض استخدامات الذكاء الاصطناعي في التعليم مع أمثلة توضيحية.</p>
+            <p class="detail-extra">
+              عرض لأبرز استخدامات الذكاء الاصطناعي في التعليم، مثل التعلّم المخصّص، والمساعدات
+              الذكية، وتقييم الواجبات آليًا.
+            </p>
+          </div>
+          <div class="detail-block reveal">
+            <h3>النتائج والأمثلة</h3>
+            <ul>
+              <li>التعلّم المخصّص بما يناسب مستوى كل طالبة.</li>
+              <li>المساعدات الذكية للإجابة عن الأسئلة وتقديم الدعم.</li>
+              <li>أمثلة على تقييم الواجبات آليًا وتتبّع التقدّم.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="detail-actions reveal">
+          <button type="button" class="back-btn" data-go="home" data-scroll="projects">العودة إلى معرض الأعمال</button>
+          <button type="button" class="back-btn" data-go="home">العودة إلى الصفحة الرئيسية</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- صفحة تفاصيل: الأمن السيبراني -->
+    <section class="screen detail" id="screen-project-cyber">
+      <div class="container detail-panel">
+        <div class="detail-top reveal">
+          <span class="detail-kicker">مشروع ٠٣</span>
+          <h2 class="detail-title">الأمن السيبراني</h2>
+        </div>
+
+        <div class="detail-image reveal">
+          <img src="assets/cybersecurity.svg" alt="درع وقفل لحماية الحسابات وكلمات المرور">
+        </div>
+
+        <div class="detail-content">
+          <div class="detail-block reveal">
+            <h3>نظرة عامة</h3>
+            <p>التوعية بطرق حماية الحسابات وكلمات المرور وأهمية الأمان الرقمي.</p>
+            <p class="detail-extra">
+              حملة توعوية بطرق حماية الحسابات وكلمات المرور، تشمل استخدام كلمات مرور قوية،
+              وتفعيل المصادقة الثنائية، وتجنّب الروابط المشبوهة.
+            </p>
+          </div>
+          <div class="detail-block reveal">
+            <h3>النتائج والأمثلة</h3>
+            <ul>
+              <li>استخدام كلمات مرور قوية وفريدة لكل حساب.</li>
+              <li>تفعيل المصادقة الثنائية لحماية إضافية.</li>
+              <li>التنبّه للروابط المشبوهة وأهمية التحديث المستمر.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="detail-actions reveal">
+          <button type="button" class="back-btn" data-go="home" data-scroll="projects">العودة إلى معرض الأعمال</button>
+          <button type="button" class="back-btn" data-go="home">العودة إلى الصفحة الرئيسية</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 ريماس تركي — معرض أعمالي</p>
+    </div>
+  </footer>
+
+  <div class="contact-modal" id="contactModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+    <div class="contact-modal__backdrop" data-close-modal></div>
+    <div class="contact-modal__panel" role="document">
+      <button type="button" class="modal-close" id="contactClose" aria-label="إغلاق نافذة التواصل">×</button>
+      <h3 id="contactModalTitle">تواصلي معي</h3>
+      <p class="modal-subtitle">اختر طريقة التواصل المفضّلة</p>
+      <div class="contact-options">
+        <a class="contact-option is-disabled" id="whatsappLink" href="#" aria-disabled="true">
+          <span class="option-icon" aria-hidden="true">✆</span>
+          <span>التواصل عبر واتساب</span>
+        </a>
+        <a class="contact-option is-disabled" id="callLink" href="#" aria-disabled="true">
+          <span class="option-icon" aria-hidden="true">☎</span>
+          <span>الاتصال الهاتفي</span>
+        </a>
+      </div>
+      <p class="modal-note">سيُفعّل الخيار عند إضافة رقم تواصل مخصص.</p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const screens = Array.prototype.slice.call(document.querySelectorAll('.screen'));
+      const veil = document.querySelector('.transition-veil');
+      const progress = document.querySelector('.scroll-progress');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      let current = 'home';
+      const stack = ['home'];
+      let busy = false;
+      let pendingScroll = null;
+
+      function byId(id) { return document.getElementById('screen-' + id); }
+      function valid(id) { return !!byId(id); }
+
+      function updateProgress() {
+        if (!progress) return;
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const value = max > 0 ? window.scrollY / max : 0;
+        progress.style.transform = 'scaleX(' + Math.min(1, Math.max(0, value)) + ')';
+      }
+
+      function scrollToSection(id) {
+        const target = document.getElementById(id);
+        if (target) target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      }
+
+      function chrome(id) {
+        document.querySelectorAll('.nav-btn').forEach(function (btn) {
+          const isCurrent =
+            (id === 'home' && btn.dataset.scroll === 'home-top') ||
+            (id.indexOf('project-') === 0 && btn.dataset.scroll === 'projects');
+          btn.classList.toggle('is-current', isCurrent);
+        });
+      }
+
+      function showScreen(id, options) {
+        options = options || {};
+        const target = byId(id);
+        if (!target || busy) return;
+
+        if (id === current) {
+          if (options.scrollTo) scrollToSection(options.scrollTo);
+          else window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+          return;
+        }
+
+        busy = true;
+        pendingScroll = options.scrollTo || null;
+        if (options.push !== false) {
+          const existing = stack.indexOf(id);
+          if (existing !== -1) stack.length = existing + 1;
+          else stack.push(id);
+        }
+
+        veil.classList.add('is-covering');
+
+        window.setTimeout(function () {
+          screens.forEach(function (screen) { screen.classList.remove('is-active', 'is-visible'); });
+          target.classList.add('is-active');
+          current = id;
+          chrome(id);
+          window.scrollTo({ top: 0, behavior: 'auto' });
+          window.history.replaceState({ screen: id }, '', '#' + id);
+          updateProgress();
+
+          window.requestAnimationFrame(function () {
+            target.classList.add('is-visible');
+            veil.classList.remove('is-covering');
+
+            if (pendingScroll) {
+              const scrollId = pendingScroll;
+              pendingScroll = null;
+              window.setTimeout(function () { scrollToSection(scrollId); }, reduceMotion ? 0 : 170);
+            }
+
+            window.setTimeout(function () { busy = false; }, reduceMotion ? 0 : 320);
+          });
+        }, reduceMotion ? 0 : 300);
+      }
+
+      function openProject(name) { showScreen('project-' + name); }
+
+      /* ظهور تدريجي للعناصر */
+      const revealItems = document.querySelectorAll('.reveal');
+
+      document.querySelectorAll('.card').forEach(function (card, index) {
+        card.style.setProperty('--i', index);
+      });
+
+      if (!('IntersectionObserver' in window)) {
+        revealItems.forEach(function (el) { el.classList.add('is-visible'); });
+      } else {
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+        revealItems.forEach(function (el) { observer.observe(el); });
+      }
+
+      document.querySelectorAll('[data-go]').forEach(function (el) {
+        el.addEventListener('click', function (event) {
+          event.preventDefault();
+          showScreen(el.dataset.go, { scrollTo: el.dataset.scroll });
+        });
+      });
+
+      document.querySelectorAll('.card[data-project]').forEach(function (card) {
+        card.addEventListener('click', function () { openProject(card.dataset.project); });
+        card.addEventListener('keydown', function (event) {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openProject(card.dataset.project);
+          }
+        });
+      });
+
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      window.addEventListener('resize', updateProgress);
+
+      /* رابط مباشر للشاشات */
+      const hash = window.location.hash.replace('#', '');
+      let initial = 'home';
+      if (hash === 'projects' || hash === 'contact') initial = 'home';
+      else if (hash.indexOf('project-') === 0 && valid(hash)) initial = hash;
+
+      if (initial !== 'home') {
+        screens.forEach(function (screen) { screen.classList.remove('is-active', 'is-visible'); });
+        byId(initial).classList.add('is-active', 'is-visible');
+        current = initial;
+        stack.push(initial);
+        window.history.replaceState({ screen: initial }, '', '#' + initial);
+      }
+
+      /* إظهار تفاصيل المشروع من أعلى الشاشة فور فتحه */
+      if (current.indexOf('project-') === 0) {
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      }
+
+      chrome(current);
+      updateProgress();
+
+      if (hash === 'projects' || hash === 'contact') {
+        window.setTimeout(function () { scrollToSection(hash); }, 250);
+      }
+
+      const contactOpen = document.getElementById('contactOpen');
+      const contactModal = document.getElementById('contactModal');
+      const contactClose = document.getElementById('contactClose');
+
+      /* رقم التواصل المخصص — عدّله من هنا فقط */
+      const CONTACT_NUMBER = '0507913954';
+      const callLink = document.getElementById('callLink');
+      const whatsappLink = document.getElementById('whatsappLink');
+      const modalNote = contactModal.querySelector('.modal-note');
+
+      if (CONTACT_NUMBER.trim() !== '') {
+        const digits = CONTACT_NUMBER.replace(/[^\d+]/g, '');
+        const localDigits = digits.replace(/^\+/, '').replace(/^0/, '');
+        callLink.href = 'tel:' + digits;
+        whatsappLink.href = 'https://wa.me/966' + localDigits;
+        callLink.classList.remove('is-disabled');
+        whatsappLink.classList.remove('is-disabled');
+        callLink.removeAttribute('aria-disabled');
+        whatsappLink.removeAttribute('aria-disabled');
+        modalNote.hidden = true;
+      } else {
+        contactModal.querySelectorAll('.contact-option').forEach(function (option) {
+          option.addEventListener('click', function (event) {
+            event.preventDefault();
+          });
+        });
+      }
+
+      function openContactModal() {
+        contactModal.classList.add('is-open');
+        contactModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        window.requestAnimationFrame(function () {
+          window.requestAnimationFrame(function () { contactModal.classList.add('is-visible'); });
+        });
+        window.setTimeout(function () { contactClose.focus(); }, 80);
+      }
+
+      function closeContactModal() {
+        if (!contactModal.classList.contains('is-open')) return;
+        contactModal.classList.remove('is-visible');
+        contactModal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+        window.setTimeout(function () { contactModal.classList.remove('is-open'); }, 300);
+        contactOpen.focus();
+      }
+
+      contactOpen.addEventListener('click', openContactModal);
+      contactClose.addEventListener('click', closeContactModal);
+      contactModal.querySelectorAll('[data-close-modal]').forEach(function (el) {
+        el.addEventListener('click', closeContactModal);
+      });
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') closeContactModal();
+      });
+    })();
+  </script>
+</body>
+</html>
