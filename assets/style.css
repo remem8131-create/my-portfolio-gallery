@@ -1,13 +1,13 @@
 /* ---------- معرض أعمالي | هوية وردية واحدة فقط ---------- */
 :root {
-  --pink: #F8C8D8;
+  --pink: #E79AB4;
   --white: #FFFFFF;
   --cream: #FFFAF3;
 
-  --pink-soft: rgba(248, 200, 216, 0.18);
-  --pink-mist: rgba(248, 200, 216, 0.30);
-  --pink-line: rgba(248, 200, 216, 0.55);
-  --pink-shadow: rgba(248, 200, 216, 0.42);
+  --pink-soft: rgba(231, 154, 180, 0.18);
+  --pink-mist: rgba(231, 154, 180, 0.30);
+  --pink-line: rgba(231, 154, 180, 0.55);
+  --pink-shadow: rgba(231, 154, 180, 0.42);
   --ease: cubic-bezier(0.22, 0.8, 0.28, 1);
 }
 
@@ -25,7 +25,7 @@ html {
 
 body {
   font-family: "Cairo", sans-serif;
-  color: var(--pink);
+  color: #000000;
   line-height: 1.85;
   background-color: var(--cream);
   background-image:
@@ -210,7 +210,7 @@ button:focus-visible,
 
 .nav-btn.is-current {
   background: var(--pink);
-  color: var(--white);
+  color: #000000;
 }
 
 /* ---------- الأزرار ---------- */
@@ -224,7 +224,7 @@ button:focus-visible,
   border: 1px solid var(--pink);
   border-radius: 999px;
   background: var(--pink);
-  color: var(--white);
+  color: #000000;
   font-weight: 800;
   padding: 13px 32px;
   box-shadow: 0 12px 26px var(--pink-shadow);
@@ -252,7 +252,7 @@ button:focus-visible,
 .cta:hover,
 .cta:focus-visible {
   background: var(--white);
-  color: var(--pink);
+  color: #000000;
   transform: translateY(-3px);
   box-shadow: 0 16px 32px var(--pink-shadow);
 }
@@ -278,7 +278,7 @@ button:focus-visible,
   border: 1px solid var(--pink);
   border-radius: 999px;
   background: var(--pink);
-  color: var(--white);
+  color: #000000;
   font-weight: 800;
   font-size: 0.88rem;
   padding: 9px 18px;
@@ -292,7 +292,7 @@ button:focus-visible,
 .back-btn:hover,
 .back-btn:focus-visible {
   background: var(--white);
-  color: var(--pink);
+  color: #000000;
   box-shadow: 0 10px 22px var(--pink-shadow);
 }
 
@@ -433,7 +433,7 @@ button:focus-visible,
   height: 34px;
   border-radius: 50%;
   background: var(--pink);
-  color: var(--white);
+  color: #000000;
   font-size: 0.72rem;
   font-weight: 800;
   box-shadow: 0 6px 14px var(--pink-shadow);
@@ -490,7 +490,7 @@ button:focus-visible,
   padding: 6px 16px;
   border-radius: 999px;
   background: var(--pink);
-  color: var(--white);
+  color: #000000;
   font-size: 0.82rem;
   font-weight: 800;
   margin-bottom: 12px;
@@ -706,7 +706,7 @@ body.modal-open {
   border: 1px solid var(--pink);
   border-radius: 50%;
   background: var(--white);
-  color: var(--pink);
+  color: #000000;
   font-size: 1.25rem;
   line-height: 1;
   transition: background 0.25s ease, color 0.25s ease, transform 0.25s var(--ease);
@@ -715,7 +715,7 @@ body.modal-open {
 .modal-close:hover,
 .modal-close:focus-visible {
   background: var(--pink);
-  color: var(--white);
+  color: #000000;
   transform: rotate(90deg);
 }
 
@@ -744,7 +744,7 @@ body.modal-open {
   border: 1px solid var(--pink);
   border-radius: 999px;
   background: var(--pink);
-  color: var(--white);
+  color: #000000;
   font-weight: 800;
   transition: background 0.25s ease, color 0.25s ease, transform 0.25s var(--ease), box-shadow 0.25s ease;
 }
@@ -752,7 +752,7 @@ body.modal-open {
 .contact-option:hover,
 .contact-option:focus-visible {
   background: var(--white);
-  color: var(--pink);
+  color: #000000;
   transform: translateY(-2px);
   box-shadow: 0 10px 22px var(--pink-shadow);
 }
@@ -779,7 +779,7 @@ body.modal-open {
 .contact-option.is-disabled:hover,
 .contact-option.is-disabled:focus-visible {
   background: var(--pink);
-  color: var(--white);
+  color: #000000;
   transform: none;
   box-shadow: none;
 }
