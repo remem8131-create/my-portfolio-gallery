@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#fff5fb" />
+  <meta name="description" content="تجربة تفاعلية مبتكرة: ألعاب وتحديات لاستكشاف عالم التوأم الرقمي." />
+  <title>هل يمكن أن يكون لنا توأم رقمي؟ — تجربة التحدي</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app" id="app" data-station="0">
+    <!-- خلفية فاتحة متحركة -->
+    <div class="bg" aria-hidden="true">
+      <div class="bg-layer show" id="bgA"></div>
+      <div class="bg-layer" id="bgB"></div>
+      <div class="rays"></div>
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+      <div class="blob blob-4"></div>
+    </div>
+    <canvas id="particles" aria-hidden="true"></canvas>
+
+    <!-- لوحة النقاط والمستوى -->
+    <header class="hud">
+      <div class="brand"><span class="brand-mark">◉</span> توأم رقمي <small>تجربة التحدي</small></div>
+      <div class="hud-stats">
+        <div class="stat"><span>النقاط</span><strong id="pointsValue">٠</strong></div>
+        <div class="stat"><span>المستوى</span><strong id="levelValue">١</strong></div>
+        <button class="stat stat-btn" id="achBtn" aria-label="عرض الإنجازات">
+          <span>الإنجازات</span><strong id="achValue">٠/٦</strong>
+        </button>
+      </div>
+      <div class="top-progress"><i id="topProgressBar"></i></div>
+    </header>
+
+    <main class="slides" id="slides">
+
+      <!-- ١ - الغلاف -->
+      <section class="slide slide-cover active" data-station="0" data-title="الغلاف" data-icon="✦" aria-label="المحطة ١: الغلاف">
+        <div class="slide-inner cover-inner">
+          <div class="cover-orbit" aria-hidden="true">
+            <div class="orbit-core">
+              <svg viewBox="0 0 64 64" width="100%" height="100%">
+                <circle cx="24" cy="32" r="13" fill="none" stroke="url(#coverGrad)" stroke-width="4" />
+                <circle cx="42" cy="32" r="13" fill="none" stroke="url(#coverGrad)" stroke-width="4" opacity=".75" />
+                <path d="M32 27 L32 37" stroke="#8d5bb5" stroke-width="3" stroke-linecap="round" opacity=".8" />
+                <defs>
+                  <linearGradient id="coverGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#ff9ecb" /><stop offset="1" stop-color="#b995f5" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <span class="orbit-chip oc-1">بيانات</span>
+            <span class="orbit-chip oc-2">نسخة</span>
+            <span class="orbit-chip oc-3">حياة</span>
+          </div>
+          <span class="eyebrow">٩ محطات · ألعاب وتحديات · اجمع النقاط</span>
+          <h1>هل يمكن أن يكون لنا <span class="grad">توأم رقمي؟</span></h1>
+          <p class="lead">نسخة رقمية تشبهك، تتحدث معك، وتتعلم منك... لنكتشف معًا كيف يحدث ذلك.</p>
+          <button class="primary-btn" data-go="1">ابدأ التحدي <span aria-hidden="true">←</span></button>
+          <p class="swipe-tip">اختر أي محطة من الخريطة أسفل الشاشة، أو ابدأ من المحطة الثانية.</p>
+        </div>
+      </section>
+
+      <!-- ٢ - اختبار: ما هو التوأم الرقمي؟ -->
+      <section class="slide slide-quiz" data-station="1" data-title="التعريف" data-icon="?" aria-label="المحطة ٢: اختبار التعريف">
+        <div class="slide-inner">
+          <span class="eyebrow">المحطة ٢ · اختبار ذكاء</span>
+          <h2>ما هو <span class="grad">التوأم الرقمي؟</span></h2>
+          <p class="lead">مرآة ذكية لشيء حقيقي، تتغيّر كلما تغيّر هو.</p>
+          <div class="quiz-card">
+            <p class="question">أيّ وصفٍ أدقّ للتوأم الرقمي؟</p>
+            <div class="option-list" role="group" aria-label="إجابات اختبار التعريف">
+              <button class="option" data-correct="false"><span class="opt-key">أ</span> صورة ثابتة تُحفظ في الملفات ولا تتغيّر.</button>
+              <button class="option" data-correct="true"><span class="opt-key">ب</span> نسخة رقمية حيّة تتحدث بياناتها لحظة بلحظة.</button>
+              <button class="option" data-correct="false"><span class="opt-key">ج</span> برنامج لتصميم الشعارات والألوان.</button>
+            </div>
+            <div class="inline-feedback" id="quiz2Feedback" aria-live="polite">اختر الإجابة التي تظهر لك الأقرب...</div>
+          </div>
+          <details class="mini-details">
+            <summary>مكوّنات التوأم (اضغط للتوسيع)</summary>
+            <div class="detail-grid">
+              <p><strong>🌱 جسم حقيقي</strong> — أنت، مدينتك، أو آلة. <em>الواقع: كل شيء له أثر في العالم الحقيقي.</em></p>
+              <p><strong>📡 بيانات حيّة</strong> — حساسات وصور وتسجيلات. <em>الإشارات: معلومات تتدفق لحظة بلحظة.</em></p>
+              <p><strong>🪞 نموذج رقمي</strong> — نسخة تتحدث وتتغير معك. <em>التوأم: صورة رقمية تعكس التغيّر فورًا.</em></p>
+              <p class="detail-note">👆 اضغط على أي بطاقة لتقليبها وتكتشف معناها.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- ٣ - لغز الترتيب -->
+      <section class="slide slide-puzzle" data-station="2" data-title="التصنيع" data-icon="⌘" aria-label="المحطة ٣: لغز ترتيب الخطوات">
+        <div class="slide-inner">
+          <span class="eyebrow">المحطة ٣ · لغز التفكير</span>
+          <h2>كيف تُصنع <span class="grad">نسخة رقمية؟</span></h2>
+          <p class="lead">ثلاث خطوات... رتّبها كما تحدث في الواقع بالضغط على البطاقات بالترتيب.</p>
+          <div class="puzzle-area">
+            <div class="solution-slots" id="solutionSlots" aria-label="ترتيب الخطوات المختار">
+              <div class="slot"><span>١</span><small>؟</small></div>
+              <div class="slot"><span>٢</span><small>؟</small></div>
+              <div class="slot"><span>٣</span><small>؟</small></div>
+            </div>
+            <div class="tile-tray" role="group" aria-label="بطاقات خطوات التصنيع">
+              <button class="puzzle-tile" data-order="1"><strong>اجمع البيانات</strong><small>حساسات وصور</small></button>
+              <button class="puzzle-tile" data-order="2"><strong>ابنِ النموذج</strong><small>ذكاء اصطناعي</small></button>
+              <button class="puzzle-tile" data-order="3"><strong>اربط وحدّث</strong><small>اتصال مستمر</small></button>
+            </div>
+            <div class="inline-feedback" id="puzzleFeedback" aria-live="polite">ابدأ بالخطوة التي تضع الأساس...</div>
+          </div>
+          <details class="mini-details">
+            <summary>تلميح: ماذا يحدث في كل خطوة؟</summary>
+            <div class="detail-grid">
+              <p><strong>١</strong> نجمع معلومات من الحساسات والكاميرات والسجلات: نبض، حركة، صوت، وصور. كلما زادت البيانات، زادت دقة النسخة.</p>
+              <p><strong>٢</strong> يحوّل الذكاء الاصطناعي البيانات إلى نموذج يفهم الأنماط والعلاقات، مثل من يعرف أنك تنام مبكرًا يوم العمل.</p>
+              <p><strong>٣</strong> نربط النموذج بالواقع، فتتحدث النسخة تلقائيًا مع كل تغيير جديد. هذه هي اللحظة التي تصبح فيها توأمًا حقيقيًا.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- ٤ - محاكاة التوأم الرقمي (تجربة جديدة بالكامل) -->
+      <section class="slide slide-sim" data-station="3" data-title="مختبر التحديات" data-icon="◉" aria-label="المحطة ٤: مختبر التحديات">
+        <div class="slide-inner station-four">
+          <span class="eyebrow">المحطة ٤ · مختبر التحديات</span><h2>عقلك هو <span class="grad">لوحة التحكم</span></h2>
+          <p class="lead">خمسة اختبارات قصيرة، خمس طرق مختلفة للعب. اجمع النقاط وافتح شارات المختبر!</p>
+          <div class="lab-score"><span>تقدّمك في المختبر</span><strong id="labProgress">٠ / ٥</strong><div class="lab-progress"><i id="labProgressBar"></i></div></div>
+          <div class="lab-grid">
+            <article class="lab-card lab-quiz" data-game="quiz"><div class="lab-card-head"><span class="lab-icon">🧠</span><span class="lab-tag">اختيار ذكي</span></div><h3>ما الذي يجعل التوأم «رقميًا»؟</h3><p>اختر أدق إجابة.</p><div class="lab-options" role="group" aria-label="إجابات سؤال التوأم الرقمي"><button data-answer="a">نسخة ثلاثية الأبعاد جميلة</button><button data-answer="b">نموذج يتصل ببيانات أصل حقيقي ويتحدّث معها</button><button data-answer="c">قاعدة بيانات ثابتة</button></div><div class="lab-feedback" aria-live="polite">اختر إجابتك لترى النتيجة فورًا.</div></article>
+            <article class="lab-card lab-speed" data-game="speed"><div class="lab-card-head"><span class="lab-icon">⚡</span><span class="lab-tag">تحدّي السرعة</span></div><h3>التقط الإشارة!</h3><p>اضغط الإشارات التي تمثل بيانات حيّة خلال ١٢ ثانية.</p><div class="speed-hud"><div class="speed-track-bar"><i id="labTimerBar"></i></div><strong id="labTimer">١٢</strong></div><div class="signal-grid"><button data-signal="sensor">🌡️ حرارة</button><button data-signal="live">📡 بث مباشر</button><button data-signal="static">🖼️ صورة قديمة</button><button data-signal="sensor">🚶 حركة</button><button data-signal="static">📄 ملف مؤرشف</button><button data-signal="live">💓 نبض الآن</button></div><button class="small-btn" id="labSpeedStart">ابدأ الجولة</button><div class="lab-feedback" aria-live="polite">اجمع ٤ إشارات حيّة بسرعة!</div></article>
+            <article class="lab-card lab-logic" data-game="logic"><div class="lab-card-head"><span class="lab-icon">🔎</span><span class="lab-tag">لغز استنتاج</span></div><h3>سرّ المصعد الذكي</h3><p>وصلت بيانات الطابق ١٢، ثم ضغط المستخدم «نزول» ووصلت إشارة الباب مفتوح. ما الخطوة المنطقية التالية؟</p><div class="logic-choices"><button data-logic="warn">أرسل تنبيهًا بأن الباب ما زال مفتوحًا</button><button data-logic="move">حرّك المصعد فورًا</button><button data-logic="ignore">تجاهل الإشارة</button></div><div class="lab-feedback" aria-live="polite">حلّل ترتيب الإشارات قبل أن تختار.</div></article>
+            <article class="lab-card lab-error" data-game="error"><div class="lab-card-head"><span class="lab-icon">🕵️</span><span class="lab-tag">اكتشف الخطأ</span></div><h3>أيّ ادعاء فيه خلل؟</h3><p>فتّش عن العبارة التي لا تصف توأمًا رقميًا موثوقًا.</p><div class="error-board"><button data-error="ok">يتحدّث النموذج عندما تتغيّر بيانات الأصل.</button><button data-error="bad">يمكنه تمثيل الأصل بدقة حتى دون بيانات أو اتصال.</button><button data-error="ok">يمكن اختبار سيناريو افتراضي قبل تطبيقه.</button></div><div class="lab-feedback" aria-live="polite">اعثر على الادعاء غير المنطقي.</div></article>
+            <article class="lab-card lab-sim-card" data-game="sim"><div class="lab-card-head"><span class="lab-icon">🪞</span><span class="lab-tag">محاكاة حيّة</span></div><h3>أنقذ الحديقة الذكية</h3><p>حرّك الرطوبة؛ التوأم يحدّث توقعه لحظيًا.</p><div class="garden-scene" id="gardenScene"><span>🌱</span><span id="gardenStatus">التربة عطشى</span></div><label class="garden-slider">رطوبة التربة <output id="moistureOut">٢٥٪</output><input id="moistureRange" type="range" min="0" max="100" value="25" /></label><button class="small-btn" id="gardenApply">طبّق التغيير على الواقع</button><div class="lab-feedback" id="gardenFeedback" aria-live="polite">التوأم يتنبأ بالحاجة إلى الماء.</div></article>
+          </div>
+        </div>
+      </section>
+      <!-- ٥ - لعبة التوصيل -->
+      <section class="slide slide-match" data-station="4" data-title="الاستخدامات" data-icon="✿" aria-label="المحطة ٥: لعبة توصيل الاستخدامات">
+        <div class="slide-inner">
+          <span class="eyebrow">المحطة ٥ · لعبة التوصيل</span>
+          <h2>أين تُستخدم <span class="grad">هذه التقنية؟</span></h2>
+          <p class="lead">اضغط على المجال ثم اضغط على وصفه... كل زوج صحيح يضيء فورًا.</p>
+          <div class="match-game">
+            <div class="match-column" role="group" aria-label="مجالات الاستخدام">
+              <button class="match-field" data-match="health"><span>🏥</span> الصحة</button>
+              <button class="match-field" data-match="city"><span>🏙️</span> المدن</button>
+              <button class="match-field" data-match="industry"><span>🏭</span> الصناعة</button>
+              <button class="match-field" data-match="edu"><span>🎓</span> التعليم</button>
+              <button class="match-field" data-match="fun"><span>🎮</span> الترفيه</button>
+            </div>
+            <div class="match-link" aria-hidden="true"><span>⇄</span></div>
+            <div class="match-column" role="group" aria-label="أوصاف الاستخدام">
+              <button class="match-desc" data-match="edu">نموذج رقمي لكل طالب يساعد المعلّم على فهم نقاط القوة والصعوبة بشكل شخصي.</button>
+              <button class="match-desc" data-match="health">مراقبة المرضى عن بُعد، وتجربة العلاج على النسخة الرقمية قبل تطبيقه على الإنسان.</button>
+              <button class="match-desc" data-match="fun">شخصيات رقمية تتحدث بصوتك وأسلوبك في الألعاب والمساعدات الذكية، بحدود واضحة.</button>
+              <button class="match-desc" data-match="city">محاكاة حركة المرور والطاقة، ليتخذ المسؤولون قرارات أذكى قبل تنفيذها في الواقع.</button>
+              <button class="match-desc" data-match="industry">مراقبة الآلات والتنبؤ بالأعطال قبل وقوعها، فيُصلح العطل وهو مجرد احتمال.</button>
+            </div>
+          </div>
+          <div class="inline-feedback" id="matchFeedback" aria-live="polite">الأزواج المكتملة: ٠ / ٥</div>
+        </div>
+      </section>
+
+      <!-- ٦ - اختبار الشخصية -->
+      <section class="slide slide-persona" data-station="5" data-title="الشخصية" data-icon="✧" aria-label="المحطة ٦: اختبار الشخصية">
+        <div class="slide-inner">
+          <span class="eyebrow">المحطة ٦ · اختبار ذكاء</span>
+          <h2>هل تستطيع محاكاة <span class="grad">شخصيتنا؟</span></h2>
+          <p class="lead">سؤال صعب... جرّب أن تختار إجابة، ثم اكتشف الحقيقة.</p>
+          <div class="persona-options" role="group" aria-label="إجابات سؤال الشخصية">
+            <button class="persona-opt" data-correct="false">🧠 ستنسخ مشاعري كما هي.</button>
+            <button class="persona-opt" data-correct="true">🧩 ستحاكي أنماطي دون أن تشعر بها.</button>
+            <button class="persona-opt" data-correct="false">🚫 لن تتعلم مني أي شيء.</button>
+          </div>
+          <div class="reveal" id="personaReveal" aria-live="polite">اختر إجابة لتظهر الصورة كاملة 👆</div>
+          <details class="mini-details">
+            <summary>الحقبة كاملة</summary>
+            <div class="detail-grid">
+              <p><strong>إلى حدّ ما نعم:</strong> تستطيع النسخة تقليد أسلوب كلامك واختياراتك المتوقعة، لأنها تدرّبت على أنماطك السابقة. لكنها لا تعيش المشاعر التي تقف خلفها.</p>
+              <p><strong>ليس بعد:</strong> التوائم الرقمية نماذج احتمالات، لا كائنات واعية. قد تتحدث بصوتك، لكنها لا تشعر بالفرح أو القلق كما تش أنت.</p>
+            </div>
+          </details>
+          <p class="note">السر: النسخة تحاكي الأنماط، لا المشاعر.</p>
+        </div>
+      </section>
+
+      <!-- ٧ - اكتشاف الخطأ -->
+      <section class="slide slide-spot" data-station="6" data-title="الملاحظة" data-icon="⚑" aria-label="المحطة ٧: تحدي اكتشاف الخطأ">
+        <div class="slide-inner">
+          <span class="eyebrow">المحطة ٧ · تحدي الملاحظة</span>
+          <h2>الفوائد <span class="grad">والمخاطر</span></h2>
+          <p class="lead">لكل تقنية وجهان... اضغط على العبارة التي لا تنتمي إليهما.</p>
+          <div class="spot-wrap">
+            <div class="spot-side">
+              <h3>✨ الفوائد</h3>
+              <button class="spot-item" data-wrong="false">تشخيص أبكر</button>
+              <button class="spot-item" data-wrong="false">قرارات أذكى</button>
+              <button class="spot-item" data-wrong="false">تجارب آمنة</button>
+            </div>
+            <div class="spot-lens" aria-hidden="true">🔍</div>
+            <div class="spot-side">
+              <h3>🛡️ المخاطر</h3>
+              <button class="spot-item" data-wrong="false">خصوصية البيانات</button>
+              <button class="spot-item" data-wrong="true">يقرأ أفكارك دون أي بيانات!</button>
+              <button class="spot-item" data-wrong="false">الاعتماد المفرط</button>
+            </div>
+          </div>
+          <div class="inline-feedback" id="spotFeedback" aria-live="polite">ابحث عن العبارة الخاطئة بين الفوائد والمخاطر.</div>
+          <div class="meter" aria-hidden="true"><div class="meter-fill" id="meterFill"></div></div>
+          <p class="meter-label" id="meterLabel">اختر عناصر من الجانبين لترى ميزانك.</p>
+        </div>
+      </section>
+
+      <!-- ٨ - تحدي السرعة -->
+      <section class="slide slide-speed" data-station="7" data-title="السرعة" data-icon="⚡" aria-label="المحطة ٨: تحدي السرعة">
+        <div class="slide-inner">
+          <span class="eyebrow">المحطة ٨ · تحدي السرعة</span>
+          <h2>مستقبل <span class="grad">التوائم الرقمية</span></h2>
+          <p class="lead">رتّب التوقعات من الأقرب للأبعد قبل أن ينتهي الوقت!</p>
+          <div class="speed-hud">
+            <div class="speed-track-bar"><i id="speedBar"></i></div>
+            <strong id="speedTime">٢٠ ث</strong>
+          </div>
+          <div class="speed-cards" role="group" aria-label="رتّب السنوات زمنيًا">
+            <button class="speed-card" data-year="2030"><span>٢٠٣٠</span><strong>صوتك وروتينك</strong></button>
+            <button class="speed-card" data-year="2035"><span>٢٠٣٥+</span><strong>رفيق يخطّط معك</strong></button>
+            <button class="speed-card" data-year="2026"><span>٢٠٢٦</span><strong>مساعد صحي</strong></button>
+          </div>
+          <div class="inline-feedback" id="speedFeedback" aria-live="polite">اضغط «ابدأ المؤقت» ثم اختر السنوات بالترتيب.</div>
+          <button class="small-btn" id="speedStart">ابدأ المؤقت ⏱️</button>
+          <details class="mini-details">
+            <summary>التوقعات كاملة</summary>
+            <div class="detail-grid">
+              <p><strong>٢٠٢٦</strong> — توائم مخصّصة للمساعدات الصحية ومتابعة الحالات المزمنة بدقة أكبر.</p>
+              <p><strong>٢٠٣٠</strong> — نسخة تتحدث بصوتك وتعرف روتينك، وتساعدك في تنظيم يومك وتذكيرك بما يهمّك.</p>
+              <p><strong>٢٠٣٥+</strong> — مساعد رقمي يخطّط معك، ويحاكي خياراتك قبل أن تتخذها، ليكون أداة لا بديلًا عنك.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- ٩ - الخاتمة ولوحة النتائج -->
+      <section class="slide slide-end" data-station="8" data-title="الخاتمة" data-icon="★" aria-label="المحطة ٩: الخاتمة">
+        <div class="slide-inner">
+          <div class="end-glow" aria-hidden="true"></div>
+          <span class="eyebrow">الخاتمة · لوحة النتائج</span>
+          <h2>هل ستصبح لنا نسخة رقمية <span class="grad">في المستقبل؟</span></h2>
+          <p class="lead">الجواب ليس في التقنية وحدها... بل في طريقة استخدامنا لها.</p>
+          <div class="score-board">
+            <div><span>نقاطك</span><strong id="finalPoints">٠</strong></div>
+            <div><span>مستواك</span><strong id="finalLevel">١</strong></div>
+            <div><span>محطات مكتملة</span><strong id="finalStations">٠ / ٩</strong></div>
+            <div><span>إنجازات</span><strong id="finalAch">٠ / ٦</strong></div>
+          </div>
+          <div class="final-chips" role="group" aria-label="اختر توقعك">
+            <button data-final="نعم، وقريبًا أكثر مما نتخيّل. المهم أن تكون النسخة تحت إرادتك لا فوقها.">نعم، قريبًا</button>
+            <button data-final="ربما... ستكون أداة قوية، لكن شكلها النهائي سيتحدد بقراراتنا نحن لا بالخوارزميات وحدها.">ربما</button>
+            <button data-final="يعتمد علينا: بياناتنا، خصوصيتنا، وحدودنا الواضحة هي ما سيقرر إن كانت مساعدًا أم بديلًا.">يعتمد علينا</button>
+          </div>
+          <div class="final-reveal" id="finalReveal" aria-live="polite">اضغط على إجابة لتسمع الخاتمة ✨</div>
+          <div class="end-actions">
+            <button class="small-btn" id="replayBtn">↺ أعد التحدي</button>
+            <button class="ghost-btn" id="shareBtn">شارك الفكرة</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- خريطة المحطات بدل أزرار التالي/السابق -->
+    <nav class="station-map" id="stationMap" aria-label="خريطة المحطات التفاعلية"></nav>
+
+    <!-- لوحة الإنجازات -->
+    <div class="achievements-panel" id="achPanel" hidden>
+      <div class="ach-card">
+        <button class="ach-close" id="achClose" aria-label="إغلاق الإنجازات">✕</button>
+        <h3>🏆 لوحة الإنجازات</h3>
+        <p class="ach-sub">أنجز التحديات لتفتح كل شارة.</p>
+        <div class="ach-list" id="achList"></div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
